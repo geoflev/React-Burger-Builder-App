@@ -5,6 +5,7 @@ import classes from "./Button.css";
 //so we also need to join them fe Button Success
 const button = (props) => (
   <button
+    disabled={props.disabled}
     className={[classes.Button, classes[props.btnType]].join(" ")}
     onClick={props.clicked}
   >
