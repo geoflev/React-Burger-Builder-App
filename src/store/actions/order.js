@@ -64,6 +64,7 @@ export const fetchOrdersStart = () => {
 
 export const fetchOrders = () => {
   return (dispatch) => {
+    dispatch(fetchOrdersStart());
     axios
       .get("/orders.json")
       .then((res) => {
@@ -79,7 +80,7 @@ export const fetchOrders = () => {
         dispatch(fetchOrdersSuccess(fetchedOrders));
       })
       .catch((err) => {
-        dispatch(fetchOrdersFailed(error));
+        dispatch(fetchOrdersFailed(err));
       });
   };
 };
